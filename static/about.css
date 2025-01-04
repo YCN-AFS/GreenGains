@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Màu nền nhẹ */
+}
+
+header {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 80px; /* Điều chỉnh kích thước logo */
+    margin-right: 10px; /* Khoảng cách giữa logo và tiêu đề */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2em; /* Điều chỉnh kích thước tiêu đề */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Sử dụng flexbox cho danh sách */
+    justify-content: center; /* Căn giữa danh sách */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền tối với độ trong suốt */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-text h2 {
+    font-size: 3em; /* Kích thước chữ lớn */
+    font-weight: bold; /* Chữ đậm */
+    text-align: center; /* Căn giữa */
+    color: white; /* Màu chữ trắng */
+}
+
+.description {
+    padding: 20px; /* Khoảng cách bên trong cho section */
+    background-color: #ecf0f1; /* Màu nền nhẹ cho section */
+    border-radius: 8px; /* Bo góc cho section */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho section */
+}
+
+.description-title {
+    font-size: 52px; /* Tăng kích thước chữ cho tiêu đề */
+    font-weight: bold; /* Đậm chữ */
+    color: #2c3e50; /* Màu chữ tối cho tiêu đề */
+    margin-top: 20px; /* Khoảng cách trên tiêu đề */
+    margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+    text-align: center; /* Căn giữa tiêu đề */
+}
+
+.description-text {
+    font-size: 30px; /* Tăng kích thước chữ cho đoạn văn */
+    line-height: 1.6; /* Khoảng cách giữa các dòng */
+    color: #34495e; /* Màu chữ tối hơn cho đoạn văn */
+    margin-bottom: 15px; /* Khoảng cách dưới mỗi đoạn văn */
+    text-align: justify; /* Căn đều hai bên cho đoạn văn */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 1.5em; /* Giảm kích thước tiêu đề trên màn hình nhỏ */
+    }
+
+    nav ul li {
+        margin-right: 10px; /* Giảm khoảng cách giữa các mục */
+    }
+
+    .hero-text {
+        padding: 10px; /* Giảm padding cho văn bản hero */
+    }
+
+    .description {
+        padding: 15px; /* Giảm padding cho phần mô tả */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        max-width: 60px; /* Giảm kích thước logo trên màn hình rất nhỏ */
+    }
+
+    .hero-text {
+        font-size: 0.9em; /* Giảm kích thước chữ cho văn bản hero */
+    }
+
+    nav ul {
+        flex-direction: column; /* Đặt danh sách theo chiều dọc */
+    }
+
+    nav ul li {
+        margin-bottom: 10px; /* Khoảng cách giữa các mục trong danh sách */
+    }
+}
+
+.banner {
+    width: 100px; /* Chiều rộng đầy đủ */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    margin-top: 10px; /* Khoảng cách trên banner */
+    display: block; /* Đảm bảo banner là một khối */
+} 

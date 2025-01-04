@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Màu nền nhẹ */
+}
+
+header {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.category-button {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0 10px; /* Khoảng cách giữa các nút */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em; /* Kích thước chữ */
+}
+
+.category-button:hover {
+    background-color: #17b818; /* Màu xanh lá cây đậm hơn khi hover */
+}
+
+.product-category {
+    margin-bottom: 50px; /* Thêm khoảng cách giữa các danh mục sản phẩm */
+}
+
+.product-category h3 {
+    text-align: center; /* Căn giữa tiêu đề danh mục sản phẩm */
+    margin-bottom: 20px; /* Thêm khoảng cách dưới tiêu đề */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tạo lưới sản phẩm */
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tăng độ mờ của bóng */
+    padding: 15px; /* Tăng padding cho sản phẩm */
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s; /* Hiệu ứng chuyển động khi hover */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Nâng sản phẩm lên khi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tăng độ mờ của bóng khi hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.price {
+    color: #e74c3c; /* Màu đỏ cho giá */
+    font-weight: bold;
+}
+
+.rating {
+    color: #f39c12; /* Màu vàng cho đánh giá */
+}
+
+footer {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    text-align: center;
+    padding: 15px;
+    color: white;
+}
+
+/* Thêm hiệu ứng cho nút */
+.button {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #17b818; /* Màu xanh lá cây đậm hơn khi hover */
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Tối hơn để tạo cảm giác sang trọng */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px; /* Tăng padding để nội dung không bị chật chội */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Thêm bóng cho popup */
+    text-align: center;
+    width: 90%; /* Đảm bảo popup không quá rộng trên màn hình nhỏ */
+    max-width: 400px; /* Giới hạn chiều rộng tối đa */
+}
+
+.popup-content h3 {
+    margin-bottom: 20px; /* Khoảng cách giữa tiêu đề và nội dung */
+    font-size: 1.5em; /* Kích thước chữ lớn hơn cho tiêu đề */
+    color: #333; /* Màu chữ tối hơn cho tiêu đề */
+}
+
+.popup-content p {
+    margin-bottom: 20px; /* Khoảng cách giữa đoạn văn và trường nhập */
+    color: #555; /* Màu chữ nhẹ hơn cho đoạn văn */
+}
+
+.popup-content input {
+    width: 100%; /* Đảm bảo trường nhập chiếm toàn bộ chiều rộng */
+    padding: 10px; /* Padding cho trường nhập */
+    border: 1px solid #ccc; /* Đường viền nhẹ */
+    border-radius: 5px; /* Bo tròn góc cho trường nhập */
+    margin-bottom: 20px; /* Khoảng cách giữa trường nhập và nút */
+}
+
+.popup-content button {
+    background-color: #1cf123; /* Màu nền cho nút */
+    color: white; /* Màu chữ trắng */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Bo tròn góc cho nút */
+    padding: 10px 20px; /* Padding cho nút */
+    cursor: pointer; /* Con trỏ khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+.popup-content button:hover {
+    background-color: #17b818; /* Màu nền khi hover */
+}
+
+.notification {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background-color: #28a745; /* Màu xanh lá cây cho thông báo thành công */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Ẩn mặc định */
+    z-index: 1000; /* Đảm bảo thông báo nằm trên các phần tử khác */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Hiệu ứng mờ dần và di chuyển */
+    opacity: 0; /* Bắt đầu với độ mờ 0 */
+    transform: translateY(-20px); /* Bắt đầu từ vị trí cao hơn */
+}
+
+.notification.show {
+    display: block; /* Hiện thông báo */
+    opacity: 1; /* Đặt độ mờ thành 1 */
+    transform: translateY(0); /* Di chuyển về vị trí ban đầu */
+}
+
+.notification-popup {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background-color: #28a745; /* Màu xanh lá cây cho thông báo thành công */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: none; /* Ẩn mặc định */
+    z-index: 1000; /* Đảm bảo thông báo nằm trên các phần tử khác */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Hiệu ứng mờ dần và di chuyển */
+    opacity: 0; /* Bắt đầu với độ mờ 0 */
+    transform: translateY(-20px); /* Bắt đầu từ vị trí cao hơn */
+}
+
+.notification-popup.show {
+    display: block; /* Hiện thông báo */
+    opacity: 1; /* Đặt độ mờ thành 1 */
+    transform: translateY(0); /* Di chuyển về vị trí ban đầu */
+    animation: slideIn 0.5s forwards; /* Thêm animation slideIn */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+} 

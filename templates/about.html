@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/about.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Giới Thiệu - Green Gains</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/templates/about.html">Giới Thiệu</a></li>
+                <li><a href="/templates/stored.html">Cửa hàng</a></li>
+                <li><a href="#">Hồ sơ</a></li>
+                <li id="registerLink"><a href="/templates/register.html">Đăng kí</a></li>
+                <li id="loginLink"><a href="/templates/login.html">Đăng nhập</a></li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                        <a href="#" onclick="logout()">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        <img src="/image/banner2.png" alt="Banner" class="banner" style="width: 100%; height: 600px;">
+    <section class="hero">
+        <div class="hero-text">
+            <h2 style="text-align: center; font-weight: bold; font-size: 60px;">Chào mừng đến với GREENGAINS</h2>
+        </div>
+    </section>
+    <section class="description">
+        <h3 class="description-title">Khám Phá GREENGAINS – Biến Rác Thành Cơ Hội Cho Tương Lai</h3>
+        <p class="description-text">GREENGAINS là một dự án khởi nghiệp tiên phong trong lĩnh vực kinh doanh tạo tác động xã hội, nhấn mạnh vào việc giải quyết vấn đề rác thải và nâng cao ý thức bảo vệ môi trường. Thông qua thông điệp đầy ý nghĩa "Biến rác thành cơ hội, bảo vệ môi trường, nhân đôi giá trị cho tương lai," chúng tôi mang đến một mô hình độc đáo, biến rác thành nguồn tài nguyên quý giá thay vì gánh nặng cho môi trường.</p>
+        
+        <h3 class="description-title">GREENGAINS Hoạt Động Như Thế Nào?</h3>
+        <p class="description-text">GREENGAINS không chỉ đơn thuần là một nền tảng, mà còn là cầu nối giữa cộng đồng và trách nhiệm với môi trường. Chúng tôi khuyến khích người dân phân loại và tái chế rác thải tại nguồn.</p>
+        <p class="description-text">Người tham gia sẽ nhận được những phần thưởng thiết thực như cây xanh hoặc các sản phẩm tái chế hữu ích. Bằng việc thay đổi thói quen và hành vi tiêu dùng, GREENGAINS góp phần giảm thiểu khối lượng rác thải đổ vào bãi rác và nâng cao chất lượng cuộc sống.</p>
+        
+        <h3 class="description-title">Hướng Tới Tương Lai Bền Vững</h3>
+        <p class="description-text">GREENGAINS không chỉ dừng lại ở việc giải quyết vấn đề rác thải, mà còn định hướng đến việc xây dựng một cộng đồng bền vững và văn minh. Bằng sự chung tay của tất cả mọi người, chúng ta có thể bảo vệ trái đất và xây dựng một tương lai xanh, sạch, đầy hi vọng.</p>
+        <p class="description-text">GREENGAINS hân hạnh đồng hành cùng bạn trên hành trình biến thử thách thành cơ hội. Hãy tham gia ngay hôm nay để góp phần tạo nên sự khác biệt!</p>
+    </section>
+    <footer>
+        <p>Copyright © 2024</p>
+        <p>Địa chỉ: Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa - Tỉnh Đồng Nai</p>
+        <p>Tel: 028.3535.7439 | Hotline: 0914.265.254</p>
+    </footer>
+    <script src="static/about.js"></script>
+    <script>
+        document.getElementById('homeLink').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Điều hướng đến trang chính
+        });
+
+        // Hiển thị tên người dùng và Avatar nếu đã đăng nhập
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userProfile').style.display = 'block';
+            document.getElementById('registerLink').style.display = 'none';
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('notification').style.display = 'block'; // Hiện chuông thông báo
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'templates/login.html'; // Chuyển hướng về trang đăng nhập
+        }
+    </script>
+</body>
+</html>

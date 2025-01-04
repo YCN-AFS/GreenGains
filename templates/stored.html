@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng - Green Gains</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/store.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #1cf123;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            max-width: 80px;
+            margin-right: 10px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            padding: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.5s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            background-color: #1cf123;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #17b818;
+        }
+        .notification {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
+        </div>
+        <nav style="margin-left: auto;">
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/templates/about.html">Giới Thiệu</a></li>
+                <li><a href="/templates/store.html">Cửa Hàng</a></li>
+                <li><a href="#">Hồ Sơ</a></li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar" style="width: 30px; height: 30px;">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                        <a href="#" onclick="logout()">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="points">Tổng điểm: <span id="userPoints">0</span></div>
+    </header>
+    <main>
+        <h2>Danh Sách Sản Phẩm</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+        </div>
+    </main>
+    <div class="notification" id="notification"></div>
+    <div id="exchangePopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h3>Xác nhận đổi điểm</h3>
+            <p>Bạn có chắc chắn muốn quy đổi điểm không?</p>
+            <input type="text" id="addressInput" placeholder="Nhập địa chỉ nhà" />
+            <div>
+                <button id="confirmExchange">Đổi</button>
+                <button id="cancelExchange">Hủy</button>
+            </div>
+        </div>
+    </div>
+    <div id="notificationPopup" class="notification-popup" style="display: none;"></div>
+    <script>
+        const products = [
+            { name: "Sen đá", price: 15000, points: 10, image: "/image/product3.jpg" },
+            { name: "Sen đá", price: 20000, points: 20, image: "/image/product1.jpg" },
+            { name: "Sen đá", price: 25000, points: 15, image: "/image/product2.jpg" },
+            { name: "Sen đá tổng hợp", price: 30000, points: 25, image: "/image/product4.0.jpg" },
+            { name: "Bonsai", price: 18000, points: 200, image: "/image/product5.1.jpg" },
+            { name: "Cây cảnh nhỏ", price: 22000, points: 18, image: "/image/product6.jpg" },
+            { name: "Cây cảnh loại 4", price: 27000, points: 22, image: "/image/product7.jpg" },
+            { name: "Cây cảnh loại 3", price: 35000, points: 30, image: "/image/product8.jpg" },
+            { name: "Cây cảnh loại 3", price: 30000, points: 20, image: "/image/product9.1.jpg" },
+            { name: "Cây cảnh loại 2", price: 40000, points: 25, image: "/image/product10.1.jpg" },
+            { name: "Cây mai cảnh", price: 50000, points: 100, image: "/image/product11.jpg" },
+            { name: "Cây cảnh loại 2", price: 6000, points: 40, image: "/image/product12.jpg" },
+        ];
+
+        let userPoints = 100; // Giả sử người dùng có 100 điểm
+
+        function displayProducts() {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = '';
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" style="width: 80%; height: auto; border-radius: 8px;">
+                    <h3>${product.name}</h3>
+                    <p class="price">₫${product.price}</p>
+                    <p class="points">Điểm: ${product.points} G</p>
+                    <button class="button buy-button" onclick="buyProduct('${product.name}')">Mua ngay</button>
+                    <button class="button exchange-button" onclick="exchangeProduct('${product.name}', ${product.points})">Đổi điểm</button>
+                `;
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        function buyProduct(productName) {
+            showNotification(`Bạn đã mua thành công sản phẩm: ${productName}.`);
+        }
+
+        function exchangeProduct(productName, pointsRequired) {
+            if (userPoints >= pointsRequired) {
+                // Hiển thị popup xác nhận
+                document.getElementById('exchangePopup').style.display = 'flex';
+
+                // Xử lý nút "Đổi"
+                document.getElementById('confirmExchange').onclick = function() {
+                    const address = document.getElementById('addressInput').value;
+                    if (address) {
+                        userPoints -= pointsRequired; // Trừ điểm
+                        document.getElementById('userPoints').textContent = userPoints; // Cập nhật điểm hiển thị
+                        showNotification(`Bạn đã đổi thành công sản phẩm: ${productName}. Địa chỉ: ${address}`);
+                        document.getElementById('exchangePopup').style.display = 'none'; // Ẩn popup
+
+                        // Cập nhật giao diện sau khi đổi điểm
+                        updateUIAfterExchange();
+                    } else {
+                        alert("Vui lòng nhập địa chỉ nhà.");
+                    }
+                };
+
+                // Xử lý nút "Hủy"
+                document.getElementById('cancelExchange').onclick = function() {
+                    document.getElementById('exchangePopup').style.display = 'none'; // Ẩn popup
+                };
+            } else {
+                showNotification(`Điểm của bạn không đủ để đổi sản phẩm này.`);
+            }
+        }
+
+        // Hàm cập nhật giao diện sau khi đổi điểm
+        function updateUIAfterExchange() {
+            // Có thể thêm các cập nhật khác ở đây nếu cần
+            // Ví dụ: Cập nhật danh sách sản phẩm hoặc thông báo
+            console.log("Giao diện đã được cập nhật sau khi đổi điểm.");
+        }
+
+        function showNotification(message) {
+            const notificationPopup = document.getElementById('notificationPopup');
+            notificationPopup.textContent = message;
+            notificationPopup.classList.add('show');
+            notificationPopup.style.display = 'block';
+
+            setTimeout(() => {
+                notificationPopup.classList.remove('show');
+                setTimeout(() => {
+                    notificationPopup.style.display = 'none';
+                }, 500);
+            }, 3000);
+        }
+
+        document.getElementById('userPoints').textContent = userPoints;
+
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userProfile').style.display = 'block';
+        }
+
+        displayProducts();
+    </script>
+</body>
+</html>

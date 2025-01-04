@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/store.css">
+    <title>Cửa Hàng - Green Gains</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/templates/about.html">Giới Thiệu</a></li>
+                <li><a href="/templates/stored.html">Cửa Hàng</a></li>
+                <li><a href="#">Hồ Sơ</a></li>
+                <li id="registerLink"><a href="/templates/register.html">Đăng Kí</a></li>
+                <li id="loginLink"><a href="/templates/login.html">Đăng Nhập</a></li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                    </div>
+                </li>
+            </ul>
+        </nav>  
+    </header>
+    <main>
+        <div class="category-buttons">
+            <button class="category-button">Sen đá</button>
+            <button class="category-button">Cây xương rồng</button>
+            <button class="category-button">Cây cảnh</button>
+            <button class="category-button">Cây ăn quả</button>
+        </div>
+        
+        <h2>Danh Sách Sản Phẩm</h2>
+        
+        <div class="product-category">
+            <h3>Sen đá</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/image/product1.jpg" alt="Sản phẩm 1">
+                    <h3>Sản phẩm 1</h3>
+                    <p class="price">₫15.000</p>
+                    <p class="rating">⭐ 4.5</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product2.jpg" alt="Sản phẩm 2">
+                    <h3>Sản phẩm 2</h3>
+                    <p class="price">₫20.000</p>
+                    <p class="rating">⭐ 4.7</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product3.jpg" alt="Sản phẩm 3">
+                    <h3>Sản phẩm 3</h3>
+                    <p class="price">₫25.000</p>
+                    <p class="rating">⭐ 4.8</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product4.jpg" alt="Sản phẩm 4">
+                    <h3>Sản phẩm 4</h3>
+                    <p class="price">₫30.000</p>
+                    <p class="rating">⭐ 4.6</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-category">
+            <h3>Cây xương rồng</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/image/product5.jpg" alt="Sản phẩm 5">
+                    <h3>Sản phẩm 5</h3>
+                    <p class="price">₫18.000</p>
+                    <p class="rating">⭐ 4.4</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product6.jpg" alt="Sản phẩm 6">
+                    <h3>Sản phẩm 6</h3>
+                    <p class="price">₫22.000</p>
+                    <p class="rating">⭐ 4.6</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product7.jpg" alt="Sản phẩm 7">
+                    <h3>Sản phẩm 7</h3>
+                    <p class="price">₫27.000</p>
+                    <p class="rating">⭐ 4.5</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product8.jpg" alt="Sản phẩm 8">
+                    <h3>Sản phẩm 8</h3>
+                    <p class="price">₫35.000</p>
+                    <p class="rating">⭐ 4.7</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-category">
+            <h3>Cây cảnh</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/image/product9.jpg" alt="Sản phẩm 9">
+                    <h3>Sản phẩm 9</h3>
+                    <p class="price">₫30.000</p>
+                    <p class="rating">⭐ 4.8</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product10.jpg" alt="Sản phẩm 10">
+                    <h3>Sản phẩm 10</h3>
+                    <p class="price">₫40.000</p>
+                    <p class="rating">⭐ 4.9</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product11.jpg" alt="Sản phẩm 11">
+                    <h3>Sản phẩm 11</h3>
+                    <p class="price">₫50.000</p>
+                    <p class="rating">⭐ 4.6</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product12.jpg" alt="Sản phẩm 12">
+                    <h3>Sản phẩm 12</h3>
+                    <p class="price">₫60.000</p>
+                    <p class="rating">⭐ 4.7</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-category">
+            <h3>Cây ăn quả</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/image/product13.jpg" alt="Sản phẩm 13">
+                    <h3>Sản phẩm 13</h3>
+                    <p class="price">₫25.000</p>
+                    <p class="rating">⭐ 4.5</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product14.jpg" alt="Sản phẩm 14">
+                    <h3>Sản phẩm 14</h3>
+                    <p class="price">₫30.000</p>
+                    <p class="rating">⭐ 4.6</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product15.jpg" alt="Sản phẩm 15">
+                    <h3>Sản phẩm 15</h3>
+                    <p class="price">₫35.000</p>
+                    <p class="rating">⭐ 4.8</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="product-card">
+                    <img src="/image/product16.jpg" alt="Sản phẩm 16" class="product-image">
+                    <h3 class="product-name">Sản phẩm 16</h3>
+                    <p class="price">₫40.000</p>
+                    <p class="rating">⭐ 4.9</p>
+                    <button class="button add-to-cart-button">Thêm vào giỏ hàng</button>
+                    <button class="button exchange-button" onclick="exchangeProduct('Sản phẩm 16', 20)">Đổi điểm</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright © 2024</p>
+        <p>Địa chỉ: Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa - Tỉnh Đồng Nai</p>
+        <p>Tel: 028.3535.7439 | Hotline: 0914.265.254</p>
+    </footer>
+    <script src="/static/scripts.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userProfile').style.display = 'block';
+            document.getElementById('registerLink').style.display = 'none';
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('notification').style.display = 'block';
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'templates/login.html';
+        }
+    </script>
+</body>
+</html> 

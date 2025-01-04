@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/about.css">
+    <title>Green Gains</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/templates/about.html">Giới Thiệu</a></li>
+                <li><a href="/templates/stored.html">Cửa hàng</a></li>
+                <li><a href="#">Hồ sơ</a></li>
+                <li id="registerLink"><a href="/templates/register.html">Đăng kí</a></li>
+                <li id="loginLink"><a href="/templates/login.html">Đăng nhập</a></li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()">
+                        <img src="image/avatar.jpg" alt="Avatar" class="avatar">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                        <a href="#" onclick="logout()">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>  
+    </header>
+    <section class="images">
+        <img src="/image/banner2.png" alt="Hình nền" class="hero-image" />
+    </section>
+    <section class="description">
+        <h2>Giới thiệu về Greengains</h2>
+        <p>Công ty cổ phần công nghiệp và xây dựng Greengains cung cấp các dịch vụ chất lượng cao, giúp bạn duy trì không gian sống và làm việc sạch sẽ, thoải mái.</p>
+    </section>
+    <footer>
+        <p>Copyright © 2024</p>
+        <p>Địa chỉ: Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa - Tỉnh Đồng Nai</p>
+        <p>Tel: 028.3535.7439 | Hotline: 0914.265.254</p>
+    </footer>
+    <script src="/static/scripts.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('userProfile').style.display = 'block';
+            document.getElementById('registerLink').style.display = 'none';
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('notification').style.display = 'block';
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = 'templates/login.html';
+        }
+    </script>
+</body>
+</html>

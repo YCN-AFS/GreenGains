@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="/static/about.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/about.css">
+    <link rel="stylesheet" href="static/home.css">
     <title>Green Gains</title>
+    <meta name="description" content="GreenGains - Giải pháp môi trường và kinh doanh bền vững">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="image" href="image/banner2.png">
 </head>
 <body>
     <header>
@@ -16,11 +20,11 @@
         <nav>
             <ul>
                 <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
-                <li><a href="/templates/about.html">Giới Thiệu</a></li>
-                <li><a href="/templates/stored.html">Cửa hàng</a></li>
-                <li><a href="#">Hồ sơ</a></li>
-                <li id="registerLink"><a href="/templates/register.html">Đăng kí</a></li>
-                <li id="loginLink"><a href="/templates/login.html">Đăng nhập</a></li>
+                <li><a href="/about.html">Giới Thiệu</a></li>
+                <li><a href="/stored.html">Cửa hàng</a></li>
+                <li><a href="/contact.html">Liên hệ</a></li>
+                <li id="registerLink"><a href="/register.html">Đăng kí</a></li>
+                <li id="loginLink"><a href="/login.html">Đăng nhập</a></li>
                 <li id="notification" style="display: none;">
                     <a href="#" class="notification">🔔</a>
                 </li>
@@ -36,19 +40,162 @@
             </ul>
         </nav>  
     </header>
-    <section class="images">
-        <img src="/image/banner2.png" alt="Hình nền" class="hero-image" />
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="main-slogan">Vì một tương lai xanh, cùng kinh doanh hiệu quả</h1>
+            <p class="sub-slogan">Đồng hành cùng doanh nghiệp phát triển bền vững</p>
+            <div class="cta-buttons">
+                <a href="/contact.html" class="btn btn-primary">Liên hệ ngay</a>
+                <a href="/services.html" class="btn btn-secondary">Khám phá dịch vụ</a>
+            </div>
+        </div>
     </section>
-    <section class="description">
-        <h2>Giới thiệu về GreenGains</h2>
-        <p>Công ty cổ phần công nghiệp và xây dựng Greengains cung cấp các dịch vụ chất lượng cao, giúp bạn duy trì không gian sống và làm việc sạch sẽ, thoải mái.</p>
+    <section class="features">
+        <h2 class="section-title">Dịch vụ của chúng tôi</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="image\home\environmental-consulting.png" alt="Tư vấn môi trường" loading="lazy">
+                <h3>Tư vấn môi trường</h3>
+                <p>Giải pháp toàn diện về môi trường cho doanh nghiệp</p>
+                <a href="/services.html#consulting" class="btn btn-secondary">Chi tiết</a>
+            </div>
+            <div class="feature-card">
+                <img src="image\home\green-tech.jpeg" alt="Công nghệ xanh" loading="lazy">
+                <h3>Công nghệ xanh</h3>
+                <p>Ứng dụng công nghệ hiện đại vào bảo vệ môi trường</p>
+                <a href="/services.html#tech" class="btn btn-secondary">Chi tiết</a>
+            </div>
+            <div class="feature-card">
+                <img src="image\home\sustainable.png" alt="Phát triển bền vững" loading="lazy">
+                <h3>Phát triển bền vững</h3>
+                <p>Chiến lược phát triển doanh nghiệp gắn với bảo vệ môi trường</p>
+                <a href="/services.html#sustainable" class="btn btn-secondary">Chi tiết</a>
+            </div>
+        </div>
+    </section>
+    <section class="recycling-program">
+        <h2 class="section-title">Chương Trình Đổi Rác Lấy Cây</h2>
+        <div class="program-container">
+            <div class="program-info">
+                <h3>Quy trình đơn giản</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Thu gom rác tái chế</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Mang đến điểm thu gom</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Đổi lấy cây xanh</p>
+                    </div>
+                </div>
+                <a href="/recycling.html" class="btn btn-primary">Tham gia ngay</a>
+            </div>
+            <div class="program-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="1000">0</span>
+                    <p>kg rác đã thu gom</p>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="500">0</span>
+                    <p>cây xanh đã trao</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="why-choose-us">
+        <h2 class="section-title">Tại sao chọn GreenGains?</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-count="10">0</span>
+                <p>Năm kinh nghiệm</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="200">0</span>
+                <p>Dự án thành công</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-count="50">0</span>
+                <p>Đối tác tin cậy</p>
+            </div>
+        </div>
+    </section>
+    <section class="latest-news">
+        <h2 class="section-title">Tin tức & Sự kiện</h2>
+        <div class="news-grid" id="newsGrid">
+            <!-- Nội dung sẽ được thêm bằng JavaScript -->
+        </div>
+        <div class="text-center">
+            <a href="/news.html" class="btn btn-primary">Xem thêm tin tức</a>
+        </div>
+    </section>
+    <section class="partners">
+        <h2 class="section-title">Đối tác của chúng tôi</h2>
+        <div class="partner-logos" id="partnerLogos">
+            <!-- Nội dung sẽ được thêm bằng JavaScript -->
+        </div>
     </section>
     <footer>
-        <p>Copyright © 2025 GreenGains</p>
-        <p>Địa chỉ: Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa - Tỉnh Đồng Nai</p>
-        <p>Tel: 028.3535.7439 | Hotline: 0914.265.254</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <img src="/image/logo.png" alt="GreenGains Logo" class="footer-logo">
+                <p>GreenGains - Đồng hành cùng doanh nghiệp phát triển bền vững, mang lại giá trị cho cộng đồng và môi trường.</p>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>028.3535.7439</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@greengains.vn</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="/about.html">Về chúng tôi</a></li>
+                    <li><a href="/services.html">Dịch vụ</a></li>
+                    <li><a href="/recycling.html">Đổi rác lấy cây</a></li>
+                    <li><a href="/news.html">Tin tức</a></li>
+                    <li><a href="/contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3>Đăng ký nhận tin</h3>
+                <p>Nhận thông tin mới nhất về các chương trình và dự án của chúng tôi</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email của bạn">
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 GreenGains. Bảo lưu mọi quyền.</p>
+        </div>
     </footer>
-    <script src="/static/scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="static/scripts.js"></script>
     <script>
         // Hiển thị tên người dùng và Avatar nếu đã đăng nhập
         const user = JSON.parse(localStorage.getItem('user'));
@@ -68,6 +215,30 @@
         function logout() {
             localStorage.removeItem('user');
             window.location.href = 'templates/login.html'; // Chuyển hướng về trang đăng nhập
+        }
+
+        // Lazy loading cho hình ảnh
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contact-form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Thêm validation và xử lý form ở đây
+            });
         }
     </script>
 </body>

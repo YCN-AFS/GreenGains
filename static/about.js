@@ -21,4 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
             this.style.display = this.style.display === 'none' ? 'block' : 'none';
         });
     }
+
+    const elements = document.querySelectorAll('.animate-prepare');
+    
+    elements.forEach((el, index) => {
+        setTimeout(() => {
+            el.classList.add('animate');
+        }, index * 200); // Thêm độ trễ cho từng phần tử
+    });
 }); 

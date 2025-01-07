@@ -80,7 +80,7 @@ nav ul li a {
 }
 
 .description-title {
-    font-size: 52px; /* Tăng kích thước chữ cho tiêu đề */
+    font-size: 2.5em; /* Tăng kích thước chữ cho tiêu đề */
     font-weight: bold; /* Đậm chữ */
     color: #2c3e50; /* Màu chữ tối cho tiêu đề */
     margin-top: 20px; /* Khoảng cách trên tiêu đề */
@@ -89,7 +89,7 @@ nav ul li a {
 }
 
 .description-text {
-    font-size: 30px; /* Tăng kích thước chữ cho đoạn văn */
+    font-size: 1.2em; /* Tăng kích thước chữ cho đoạn văn */
     line-height: 1.6; /* Khoảng cách giữa các dòng */
     color: #34495e; /* Màu chữ tối hơn cho đoạn văn */
     margin-bottom: 15px; /* Khoảng cách dưới mỗi đoạn văn */
@@ -141,8 +141,20 @@ footer {
 }
 
 .banner {
-    width: 100px; /* Chiều rộng đầy đủ */
+    width: 100%; /* Chiều rộng đầy đủ */
     height: auto; /* Tự động điều chỉnh chiều cao */
     margin-top: 10px; /* Khoảng cách trên banner */
     display: block; /* Đảm bảo banner là một khối */
+}
+
+/* Animation */
+.animate-prepare {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.animate {
+    opacity: 1;
+    transform: translateY(0);
 } 

@@ -8,36 +8,49 @@ const USER_KEY = 'user';
 const MOCK_NEWS = [
     {
         id: 1,
-        title: "Giải pháp xanh cho doanh nghiệp",
-        summary: "Các giải pháp bền vững giúp doanh nghiệp phát triển song song với bảo vệ môi trường",
-        image: "image/news/green-solution.jpg"
+        title: "Greengains ra mắt linh vật đại diện",
+        summary: "Greengains ra mắt linh vật dễ thương, đội mũ lá xanh, biểu tượng tái chế và bảo vệ môi trường, lan tỏa lối sống xanh",
+        image: "image/news/mascot.png"
     },
     {
         id: 2,
         title: "Chương trình đổi rác lấy cây xanh",
         summary: "Hơn 1000kg rác tái chế đã được thu gom và đổi lấy cây xanh trong tháng qua",
-        image: "image/news/recycling-program.jpg"
+        image: "image/news/mascot.png"
     },
     {
         id: 3,
         title: "Công nghệ xử lý rác thải mới",
         summary: "Ứng dụng công nghệ mới trong việc xử lý rác thải công nghiệp",
-        image: "image/news/waste-tech.jpg"
+        image: "image/news/mascot.png"
+    },
+    {
+        id: 4,
+        title: "Greengains Lan Tỏa Phong Trào Sống Xanh",
+        summary: "Greengains khởi xướng phong trào sống xanh, khuyến khích tái chế rác thải thành giá trị, hướng đến cộng đồng bền vững và môi trường xanh sạch đẹp",
+        image: "image/news/mascot.png"
     }
+
+
+
 ];
 
 const MOCK_PARTNERS = [
     {
-        name: "Công ty TNHH Môi trường Xanh",
-        logo: "image/partners/partner1.png"
+        name: "Limloop - Plastic recycle bags",
+        logo: "image/partners/limloop.png"
     },
     {
-        name: "Tập đoàn Phát triển Bền vững",
-        logo: "image/partners/partner2.png"
+        name: "Đại học Lạc Hồng",
+        logo: "image/partners/LacHong.png"
     },
     {
-        name: "Công ty CP Công nghệ Môi trường",
-        logo: "image/partners/partner3.png"
+        name: "AI Robotic",
+        logo: "image/partners/ai-robotic.png"
+    },
+    {
+        name: "AI Robotic",
+        logo: "image/partners/T&A-Lab.png"
     }
 ];
 
@@ -99,8 +112,17 @@ class NewsManager {
             // Sử dụng dữ liệu mẫu thay vì gọi API
             const news = MOCK_NEWS;
 
+            // Kiểm tra chiều rộng cửa sổ
+            const windowWidth = window.innerWidth;
+            let newsCount = 3; // Mặc định hiển thị 3 tin tức
+
+            // Nếu chiều rộng lớn hơn 768px, hiển thị tối đa 4 tin tức
+            if (windowWidth > 768) {
+                newsCount = Math.min(4, news.length); // Tối đa 4 tin tức
+            }
+
             newsGrid.innerHTML = news
-                .slice(0, 3)
+                .slice(0, newsCount)
                 .map(item => this.createNewsCard(item))
                 .join('');
         } catch (error) {
@@ -110,12 +132,11 @@ class NewsManager {
 
     static createNewsCard(news) {
         return `
-            <div class="news-card">
+            <div class="news-card" onclick="location.href='/news/${news.id}'" style="cursor: pointer;">
                 <img src="${news.image}" alt="${news.title}" loading="lazy">
                 <div class="news-content">
                     <h3>${news.title}</h3>
                     <p>${news.summary}</p>
-                    <a href="/news/${news.id}" class="btn btn-secondary">Đọc thêm</a>
                 </div>
             </div>
         `;

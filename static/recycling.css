@@ -16,10 +16,12 @@ header {
     position: relative;
     min-height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
-                url('/image/banner.jpg') center/cover fixed; /* Thay đổi hình nền */
+                url('/image/news/muahex.jpg') center/cover fixed; /* Thay đổi hình nền */
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #e0f7fa; /*�ảm bảo màu nền giống với index.html */
+    padding: 20px; /* Điều chỉnh padding nếu cần */
 }
 
 .hero-content {
@@ -27,6 +29,7 @@ header {
     color: var(--white);
     padding: 0 1rem;
     max-width: 800px;
+    margin: 0 auto; /* Căn giữa nội dung */
 }
 
 .main-slogan {
@@ -107,6 +110,8 @@ footer {
     color: #fff;
     padding: 4rem 0 0;
     text-align: center;
+    background-color: #1cf123; /*�ảm bảo màu footer giống với index.html */
+    padding: 20px; /* Điều chỉnh padding nếu cần */
 }
 
 .checkbox-container {
@@ -117,4 +122,23 @@ footer {
 
 .checkbox-container input {
     margin-right: 10px; /* Khoảng cách giữa checkbox và nhãn */
+}
+
+.description {
+    font-size: 1.2rem; /* Kích thước chữ cho mô tả */
+    margin: 1rem 0; /* Khoảng cách trên và dưới */
+    color: rgba(255, 255, 255, 0.8); /* Màu chữ nhạt hơn để tạo sự tương phản */
+}
+
+.btn-primary {
+    padding: 10px 20px; /* Điều chỉnh padding cho nút */
+    background-color: #1cf123; /* Màu nền cho nút */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none; /* Bỏ gạch chân */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+}
+
+.btn-primary:hover {
+    background-color: #16a31a; /* Màu nền khi hover */
 } 

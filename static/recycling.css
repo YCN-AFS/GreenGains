@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Màu nền nhẹ */
+}
+
+header {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    padding: 15px; /* Giảm padding */
+    text-align: center;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                url('/image/banner.jpg') center/cover fixed; /* Thay đổi hình nền */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    padding: 0 1rem;
+    max-width: 800px;
+}
+
+.main-slogan {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.sub-slogan {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1.2s ease 0.3s backwards;
+}
+
+.hero h2 {
+    font-size: 2em; /* Giảm kích thước chữ */
+    color: #2c3e50;
+}
+
+.registration-form {
+    padding: 20px; /* Giảm padding cho phần đăng ký */
+    background-color: #ecf0f1; /* Màu nền nhẹ cho phần đăng ký */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; /* Căn giữa và thêm khoảng cách */
+    max-width: 600px; /* Giới hạn chiều rộng tối đa */
+}
+
+.registration-form h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
+}
+
+.registration-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.registration-form select,
+.registration-form input {
+    width: 100%;
+    padding: 8px; /* Giảm padding */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s; /* Hiệu ứng chuyển màu viền */
+}
+
+.registration-form select:focus,
+.registration-form input:focus {
+    border-color: #1cf123; /* Màu viền khi focus */
+}
+
+.registration-form button {
+    background-color: #1cf123; /* Màu xanh lá cây */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+}
+
+.registration-form button:hover {
+    background-color: #16a31a; /* Màu xanh lá cây đậm hơn khi hover */
+}
+
+footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #fff;
+    padding: 4rem 0 0;
+    text-align: center;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-container input {
+    margin-right: 10px; /* Khoảng cách giữa checkbox và nhãn */
+} 

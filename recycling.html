@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/recycling.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Chương Trình Đổi Rác Lấy Cây - Green Gains</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/about.html">Giới Thiệu</a></li>
+                <li><a href="/stored.html">Cửa hàng</a></li>
+                <li><a href="#">Hồ sơ</a></li>
+                <li id="registerLink"><a href="/register.html">Đăng kí</a></li>
+                <li id="loginLink"><a href="/login.html">Đăng nhập</a></li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                        <a href="#" onclick="logout()">Đăng xuất</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="main-slogan">Chương Trình Đổi Rác Lấy Cây</h2>
+            <p class="sub-slogan">Tham gia cùng chúng tôi trong hành trình bảo vệ môi trường!</p>
+        </div>
+    </section>
+
+    <section class="registration-form">
+        <h3>Đăng Ký Địa Điểm Thu Gom Rác</h3>
+        <form id="recyclingForm">
+            <label for="location">Địa điểm thu gom:</label>
+            <select id="location" required>
+                <option value="">Chọn địa điểm</option>
+                <option value="greengains">Tại cơ sở của Greengains</option>
+                <option value="home">Tại nhà</option>
+            </select>
+
+            <label for="wasteType">Phân loại rác:</label>
+            <select id="wasteType" required>
+                <option value="">Chọn loại rác</option>
+                <option value="plastic">Chai nhựa</option>
+                <option value="paper">Giấy (bìa carton)</option>
+                <option value="metal">Kim loại (lon bia)</option>
+                <option value="other">Khác (vỏ h�p sữa, ...)</option>
+            </select>
+
+            <label for="quantity">Khối lượng (kg):</label>
+            <input type="number" id="quantity" min="1" required>
+
+            <label for="condition">Tình trạng rác thải:</label>
+            <select id="condition" required>
+                <option value="">Chọn tình trạng</option>
+                <option value="clean">Đã rửa sạch</option>
+                <option value="not_clean">Chưa rửa sạch</option>
+            </select>
+
+            <label for="imageUpload">Chụp ảnh rác:</label>
+            <input type="file" id="imageUpload" accept="image/*" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="commitment" required>
+                <label for="commitment">Tôi cam kết rằng rác thải đạt tiêu chuẩn đã quy định và tuân thủ chính sách của chương trình.</label>
+            </div>
+
+            <label for="rewardType">Hình thức nhận thưởng:</label>
+            <select id="rewardType" required>
+                <option value="">Chọn hình thức nhận thưởng</option>
+                <option value="points">Nhận điểm</option>
+                <option value="tree">Nhận cây tại cơ sở</option>
+                <option value="money">Nhận tiền</option>
+            </select>
+
+            <button type="submit">Đăng Ký</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Copyright © 2024</p>
+        <p>Địa chỉ: Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa - Tỉnh Đồng Nai</p>
+        <p>Tel: 028.3535.7439 | Hotline: 0914.265.254</p>
+    </footer>
+    <script src="static/recycling.js"></script>
+</body>
+</html> 

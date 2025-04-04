@@ -17,23 +17,30 @@
             <img src="/image/logo.png" alt="logo">
             <h1>Greengains</h1>
         </div>
-        <nav>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger"></span>
+        </button>
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
                 <li><a href="/about.html">Giới Thiệu</a></li>
                 <li><a href="/stored.html">Cửa hàng</a></li>
                 <li><a href="/contact.html">Liên hệ</a></li>
-                <li id="registerLink"><a href="/register.html">Đăng kí</a></li>
-                <li id="loginLink"><a href="/login.html">Đăng nhập</a></li>
+                <li class="auth-links">
+                    <div class="auth-buttons">
+                        <a href="/register.html" id="registerLink" class="auth-btn">Đăng kí</a>
+                        <a href="/login.html" id="loginLink" class="auth-btn">Đăng nhập</a>
+                    </div>
+                </li>
                 <li id="notification" style="display: none;">
                     <a href="#" class="notification">🔔</a>
                 </li>
                 <li id="userProfile" style="display: none;">
-                    <a href="#" onclick="toggleDropdown()">
+                    <a href="#" onclick="toggleDropdown()" class="user-profile-link">
                         <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
                         <span id="userName"></span>
                     </a>
-                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                    <div id="dropdown" class="dropdown-content">
                         <a href="#" onclick="logout()">Đăng xuất</a>
                     </div>
                 </li>
@@ -246,5 +253,271 @@
     </script>
     <!-- <script src="https://dl.dropboxusercontent.com/scl/fi/pxxj6ru9elyqn6g1o1ddl/chatbot.js?rlkey=a5dqm8kt9oxplbz4h2adgwq1m&st=a4kw817q&dl=1"></script> -->
     <script src="https://dl.dropboxusercontent.com/scl/fi/pxxj6ru9elyqn6g1o1ddl/chatbot.js?rlkey=a5dqm8kt9oxplbz4h2adgwq1m"></script>
+    <style>
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1df224, #2fcc70); /* Gradient xanh lá từ theme gốc */
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        height: 40px;
+        width: auto;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: white; /* Màu chữ trắng cho logo */
+    }
+
+    nav ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white; /* Màu chữ trắng cho menu */
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+
+    nav a:hover {
+        color: #e8f5e9; /* Màu sáng hơn khi hover */
+        transform: translateY(-2px);
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .auth-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 500;
+        transition: all 0.3s;
+    }
+
+    #registerLink {
+        background: white;
+        color: #2fcc70; /* Màu xanh của theme */
+    }
+
+    #registerLink:hover {
+        background: #e8f5e9;
+        transform: translateY(-2px);
+    }
+
+    #loginLink {
+        border: 2px solid white;
+        color: white;
+    }
+
+    #loginLink:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid white;
+    }
+
+    .user-profile-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #userName {
+        color: white;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: white; /* Màu trắng cho icon menu */
+        position: relative;
+        transition: all 0.3s;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: white; /* Màu trắng cho icon menu */
+        transition: all 0.3s;
+    }
+
+    .hamburger::before {
+        top: -6px;
+    }
+
+    .hamburger::after {
+        bottom: -6px;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        nav {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1df224, #2fcc70); /* Giữ gradient như header */
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav.active {
+            transform: translateX(0);
+        }
+
+        nav ul {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 15px;
+        }
+
+        .auth-buttons {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .auth-btn {
+            text-align: center;
+            width: 100%;
+        }
+
+        .user-profile-link {
+            justify-content: flex-start;
+        }
+
+        .dropdown-content {
+            position: static;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    /* Notification style */
+    .notification {
+        color: white !important;
+        font-size: 1.2rem;
+    }
+
+    /* Dropdown menu style */
+    .dropdown-content {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 5px 0;
+    }
+
+    .dropdown-content a {
+        color: #2fcc70 !important;
+        padding: 8px 15px;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background: #e8f5e9;
+    }
+
+    /* Menu toggle animation */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+    </style>
+    <script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        nav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const nav = document.getElementById('main-nav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            const nav = document.getElementById('main-nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            nav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+    </script>
 </body>
 </html>

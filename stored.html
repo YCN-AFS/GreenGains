@@ -2,126 +2,1078 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cửa Hàng - Green Gains</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cửa Hàng - GreenGains</title>
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- CSS chung -->
+    <link rel="stylesheet" href="/static/header.css">
     <link rel="stylesheet" href="/static/styles.css">
-    <link rel="stylesheet" href="/static/store.css">
+    <link rel="stylesheet" href="/static/mobile.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
+        /* Styles riêng cho trang Store */
+        :root {
+            --primary-color: #1df224;
+            --primary-dark: #2fcc70;
+            --primary-gradient: linear-gradient(135deg, #1df224, #2fcc70);
+            --secondary-color: #e8f5e9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+            --shadow-md: 0 3px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 15px rgba(0,0,0,0.15);
+            --rounded-sm: 5px;
+            --rounded-md: 10px;
+            --rounded-lg: 15px;
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 15px;
+            --spacing-lg: 20px;
+            --spacing-xl: 30px;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
         }
-        header {
-            background-color: #1cf123;
-            color: white;
-            padding: 20px;
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Store Hero Section */
+        .store-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/image/store-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px 60px;
+            margin-top: 60px;
+        }
+        
+        .store-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .store-hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Store Layout */
+        .store-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+        
+        /* Search and Sort Controls */
+        .store-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 20px auto;
         }
-        .logo {
+        
+        .search-bar {
             display: flex;
-            align-items: center;
+            max-width: 400px;
+            flex: 1;
         }
-        .logo img {
-            max-width: 80px;
-            margin-right: 10px;
+        
+        .search-bar input {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px 0 0 25px;
+            width: 100%;
+            outline: none;
         }
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
-            padding: 20px;
-        }
-        .product-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.5s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-        .button {
-            background-color: #1cf123;
+        
+        .search-bar button {
+            background: var(--primary-gradient);
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
+            padding: 0 20px;
+            border-radius: 0 25px 25px 0;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
-        .button:hover {
-            background-color: #17b818;
+        
+        .sort-options {
+            display: flex;
+            align-items: center;
         }
-        .notification {
-            position: fixed;
-            right: 20px;
-            top: 20px;
-            background-color: #28a745;
-            color: white;
+        
+        .sort-options label {
+            margin-right: 10px;
+            color: var(--text-light);
+        }
+        
+        .sort-options select {
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        /* Filters Section */
+        .filters {
+            width: 250px;
+            background-color: var(--white);
+            border-radius: var(--rounded-md);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            align-self: flex-start;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .filter-section {
+            margin-bottom: 25px;
+        }
+        
+        .filter-section h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            accent-color: var(--primary-dark);
+            width: 16px;
+            height: 16px;
+        }
+        
+        .price-range input {
+            width: 100%;
+            accent-color: var(--primary-dark);
+            margin: 10px 0;
+        }
+        
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .price-inputs input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--rounded-sm);
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .filter-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--rounded-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .apply-btn {
+            background: var(--primary-gradient);
+            color: var(--white);
+            flex: 2;
+        }
+        
+        .reset-btn {
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            flex: 1;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--rounded-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: var(--rounded-sm);
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .eco-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(47, 204, 112, 0.8);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: var(--rounded-sm);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-category {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            height: 50px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            color: #ffc107;
+        }
+        
+        .rating-count {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            flex: 2;
             padding: 10px;
-            border-radius: 5px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: var(--rounded-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .wishlist-btn {
+            flex: 1;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: var(--rounded-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+        
+        .add-to-cart:hover, .wishlist-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .wishlist-btn:hover {
+            color: #e91e63;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 40px 0;
+        }
+        
+        .pagination button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            background-color: var(--white);
+            border-radius: var(--rounded-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pagination button.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+        }
+        
+        .pagination button:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+        
+        /* Mobile filters */
+        .mobile-filter-btn {
             display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .filter-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 150;
+        }
+        
+        .filter-overlay.active {
+            display: block;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .store-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .store-hero p {
+                font-size: 1rem;
+            }
+            
+            .store-container {
+                flex-direction: column;
+                padding: 0 15px;
+                margin: 20px auto;
+            }
+            
+            .store-controls {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+            
+            .sort-options {
+                justify-content: space-between;
+            }
+            
+            .filters {
+                width: 100%;
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 200;
+                border-radius: 20px 20px 0 0;
+                padding-bottom: 30px;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .filters.active {
+                transform: translateY(0);
+            }
+            
+            .filters-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 15px;
+                border-bottom: 1px solid var(--border-color);
+                margin-bottom: 15px;
+            }
+            
+            .filters-header h2 {
+                margin: 0;
+                font-size: 1.3rem;
+            }
+            
+            .close-filters {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-light);
+            }
+            
+            .mobile-filter-btn {
+                display: flex;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .product-image {
+                height: 150px;
+            }
+            
+            .product-info {
+                padding: 10px;
+            }
+            
+            .product-title {
+                font-size: 0.95rem;
+                height: 40px;
+                margin-bottom: 8px;
+            }
+            
+            .product-price {
+                margin-bottom: 8px;
+            }
+            
+            .current-price {
+                font-size: 1rem;
+            }
+            
+            .original-price {
+                font-size: 0.8rem;
+            }
+            
+            .product-rating {
+                margin-bottom: 10px;
+            }
+            
+            .stars {
+                font-size: 0.8rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .add-to-cart {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+            
+            .discount-badge, .eco-badge {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+            
+            .pagination button {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            
+            .product-image {
+                height: 180px;
+            }
+        }
+        
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--white);
+            border-radius: var(--rounded-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .empty-state img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h3 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .empty-state p {
+            color: var(--text-light);
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="logo">
             <img src="/image/logo.png" alt="logo">
             <h1>Greengains</h1>
         </div>
-        <nav style="margin-left: auto;">
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger"></span>
+        </button>
+        <nav id="main-nav">
             <ul>
-                <li><a href="index.html" id="homeLink">Trang Chủ</a></li>
-                <li><a href="/about.html">Giới Thiệu</a></li>
-                <li><a href="/store.html">Cửa Hàng</a></li>
-                <li><a href="#">Hồ Sơ</a></li>
+                <li><a href="/index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/about.html" id="aboutLink">Giới Thiệu</a></li>
+                <li><a href="/stored.html" id="storeLink">Cửa hàng</a></li>
+                <li><a href="/contact.html" id="contactLink">Liên hệ</a></li>
+                <li class="auth-links">
+                    <div class="auth-buttons">
+                        <a href="/register.html" id="registerLink" class="auth-btn">Đăng kí</a>
+                        <a href="/login.html" id="loginLink" class="auth-btn">Đăng nhập</a>
+                    </div>
+                </li>
                 <li id="notification" style="display: none;">
                     <a href="#" class="notification">🔔</a>
                 </li>
                 <li id="userProfile" style="display: none;">
-                    <a href="#" onclick="toggleDropdown()">
-                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar" style="width: 30px; height: 30px;">
+                    <a href="#" onclick="toggleDropdown()" class="user-profile-link">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
                         <span id="userName"></span>
                     </a>
-                    <div id="dropdown" class="dropdown-content" style="display: none;">
+                    <div id="dropdown" class="dropdown-content">
                         <a href="#" onclick="logout()">Đăng xuất</a>
                     </div>
                 </li>
             </ul>
         </nav>
-        <div id="points">Tổng điểm: <span id="userPoints">0</span></div>
     </header>
-    <main>
-        <h2>Danh Sách Sản Phẩm</h2>
-        <div class="product-grid" id="productGrid">
-            <!-- Sản phẩm sẽ được thêm vào đây bằng JavaScript -->
+
+    <!-- Hero Section -->
+    <section class="store-hero">
+        <h1>Cửa Hàng Xanh GreenGains</h1>
+        <p>Khám phá các sản phẩm thân thiện với môi trường, tái chế và tái sử dụng để đóng góp vào lối sống bền vững.</p>
+    </section>
+
+    <!-- Search & Controls -->
+    <div class="store-controls">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button><i class="fas fa-search"></i></button>
         </div>
-    </main>
+        <div class="sort-options">
+            <label for="sort">Sắp xếp:</label>
+            <select id="sort">
+                <option value="popular">Phổ biến nhất</option>
+                <option value="newest">Mới nhất</option>
+                <option value="price-asc">Giá: Thấp đến cao</option>
+                <option value="price-desc">Giá: Cao đến thấp</option>
+                <option value="rating">Đánh giá cao nhất</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Store Container -->
+    <div class="store-container">
+        <!-- Filters -->
+        <div class="filters" id="filters">
+            <div class="filters-header">
+                <h2>Bộ lọc</h2>
+                <button class="close-filters" id="closeFilters">&times;</button>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Danh mục</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="category1">
+                        <label for="category1">Sản phẩm tái chế</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="category2">
+                        <label for="category2">Đồ dùng thân thiện môi trường</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="category3">
+                        <label for="category3">Cây xanh</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="category4">
+                        <label for="category4">Thực phẩm hữu cơ</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Giá</h3>
+                <div class="price-range">
+                    <input type="range" min="0" max="1000000" value="500000" id="priceRange">
+                    <div class="price-inputs">
+                        <input type="number" placeholder="Min" id="minPrice">
+                        <input type="number" placeholder="Max" id="maxPrice">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Đánh giá</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="rating5">
+                        <label for="rating5">5 sao</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="rating4">
+                        <label for="rating4">4 sao trở lên</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="rating3">
+                        <label for="rating3">3 sao trở lên</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>Chứng nhận</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="cert1">
+                        <label for="cert1">Chứng nhận hữu cơ</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="cert2">
+                        <label for="cert2">Thân thiện môi trường</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="cert3">
+                        <label for="cert3">Tái chế 100%</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn apply-btn">Áp dụng</button>
+                <button class="filter-btn reset-btn">Đặt lại</button>
+            </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product1.jpg" alt="Túi tái chế từ chai nhựa">
+                    <div class="discount-badge">-20%</div>
+                    <div class="eco-badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>Tái chế</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Sản phẩm tái chế</div>
+                    <h3 class="product-title">Túi tái chế từ chai nhựa</h3>
+                    <div class="product-price">
+                        <div class="current-price">120.000 ₫</div>
+                        <div class="original-price">150.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-count">(24)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product2.jpg" alt="Bình nước thân thiện môi trường">
+                    <div class="eco-badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>Hữu cơ</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Đồ dùng thân thiện môi trường</div>
+                    <h3 class="product-title">Bình nước thân thiện môi trường</h3>
+                    <div class="product-price">
+                        <div class="current-price">180.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="rating-count">(42)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product3.jpg" alt="Cây xanh trong chậu tái chế">
+                    <div class="discount-badge">-15%</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Cây xanh</div>
+                    <h3 class="product-title">Cây xanh trong chậu tái chế</h3>
+                    <div class="product-price">
+                        <div class="current-price">85.000 ₫</div>
+                        <div class="original-price">100.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="rating-count">(18)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product4.jpg" alt="Đèn trang trí từ vật liệu tái chế">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Sản phẩm tái chế</div>
+                    <h3 class="product-title">Đèn trang trí từ vật liệu tái chế</h3>
+                    <div class="product-price">
+                        <div class="current-price">250.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-count">(31)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product5.jpg" alt="Bộ dao kéo từ tre tự nhiên">
+                    <div class="eco-badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>Hữu cơ</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Đồ dùng thân thiện môi trường</div>
+                    <h3 class="product-title">Bộ dao kéo từ tre tự nhiên</h3>
+                    <div class="product-price">
+                        <div class="current-price">150.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="rating-count">(14)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/image/product6.jpg" alt="Túi vải bố đa năng">
+                    <div class="discount-badge">-25%</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Đồ dùng thân thiện môi trường</div>
+                    <h3 class="product-title">Túi vải bố đa năng</h3>
+                    <div class="product-price">
+                        <div class="current-price">90.000 ₫</div>
+                        <div class="original-price">120.000 ₫</div>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="rating-count">(27)</div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Thêm vào giỏ</span>
+                        </button>
+                        <button class="wishlist-btn">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+        <button><i class="fas fa-chevron-left"></i></button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+    </div>
+
     <div class="notification" id="notification"></div>
     <div id="exchangePopup" class="popup" style="display: none;">
         <div class="popup-content">

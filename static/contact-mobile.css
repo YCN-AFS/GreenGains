@@ -1,0 +1,33 @@
+/* Contact page mobile optimization */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    
+    .contact-form, .contact-info {
+        width: 100%;
+    }
+    
+    .contact-info {
+        margin-top: 30px;
+        padding: 25px 15px;
+    }
+    
+    .contact-form form {
+        padding: 25px 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 12px;
+    }
+    
+    .map-container {
+        height: 250px;
+        margin-top: 30px;
+    }
+} 

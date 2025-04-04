@@ -1,0 +1,44 @@
+/* Footer mobile optimization */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-info, 
+    .footer-links, 
+    .footer-social, 
+    .footer-newsletter {
+        width: 100%;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin: 0 auto 15px;
+    }
+    
+    .footer-contact {
+        justify-content: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form button {
+        width: 100%;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        text-align: center;
+    }
+} 

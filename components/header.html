@@ -1,0 +1,35 @@
+<header>
+    <div class="logo">
+        <img src="/image/logo.png" alt="logo">
+        <h1>Greengains</h1>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <span class="hamburger"></span>
+    </button>
+    <nav id="main-nav">
+        <ul>
+            <li><a href="/index.html" id="homeLink">Trang Chủ</a></li>
+            <li><a href="/about.html" id="aboutLink">Giới Thiệu</a></li>
+            <li><a href="/stored.html" id="storeLink">Cửa hàng</a></li>
+            <li><a href="/contact.html" id="contactLink">Liên hệ</a></li>
+            <li class="auth-links">
+                <div class="auth-buttons">
+                    <a href="/register.html" id="registerLink" class="auth-btn">Đăng kí</a>
+                    <a href="/login.html" id="loginLink" class="auth-btn">Đăng nhập</a>
+                </div>
+            </li>
+            <li id="notification" style="display: none;">
+                <a href="#" class="notification">🔔</a>
+            </li>
+            <li id="userProfile" style="display: none;">
+                <a href="#" onclick="toggleDropdown()" class="user-profile-link">
+                    <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+                    <span id="userName"></span>
+                </a>
+                <div id="dropdown" class="dropdown-content">
+                    <a href="#" onclick="logout()">Đăng xuất</a>
+                </div>
+            </li>
+        </ul>
+    </nav>  
+</header> 

@@ -1,0 +1,45 @@
+/* About page mobile optimization */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+    }
+    
+    .about-image {
+        order: -1; /* Display image first on mobile */
+        margin-bottom: 20px;
+    }
+    
+    .mission-values {
+        flex-direction: column;
+    }
+    
+    .mission, .values {
+        width: 100%;
+    }
+    
+    .values {
+        margin-top: 30px;
+    }
+    
+    .value-item {
+        margin-bottom: 15px;
+    }
+    
+    .team-members {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .team-member {
+        width: 100%;
+    }
+    
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+} 

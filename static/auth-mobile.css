@@ -1,0 +1,41 @@
+/* Login/Register pages mobile optimization */
+@media (max-width: 768px) {
+    .auth-container {
+        width: 90%;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 25px 15px;
+    }
+    
+    .auth-form {
+        padding: 0;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .auth-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .auth-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .auth-divider {
+        margin: 20px 0;
+        width: 100%;
+    }
+    
+    .social-auth {
+        width: 100%;
+    }
+    
+    .social-auth button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+} 

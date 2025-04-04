@@ -1,0 +1,83 @@
+/* Mobile Optimization - Apply to all pages */
+
+/* General Responsive Rules */
+@media (max-width: 768px) {
+    /* Base font size & spacing */
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Container width */
+    .container, section {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    
+    /* Headings */
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 12px 20px;
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Spacing */
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .section-title {
+        margin-bottom: 25px;
+    }
+    
+    /* Main content adjustment for fixed header */
+    main {
+        margin-top: 70px !important;
+    }
+    
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extremely small screens */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+    
+    section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+} 

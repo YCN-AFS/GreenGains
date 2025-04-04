@@ -1,0 +1,94 @@
+/* Home page mobile optimization */
+@media (max-width: 768px) {
+    /* Hero section */
+    .hero {
+        height: auto;
+        padding: 60px 15px;
+    }
+    
+    .hero-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-slogan {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .sub-slogan {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+    
+    /* Features section */
+    .features-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .feature-card img {
+        height: 180px;
+        object-fit: cover;
+    }
+    
+    /* Recycling program */
+    .program-container {
+        flex-direction: column;
+    }
+    
+    .program-info, .program-stats {
+        width: 100%;
+    }
+    
+    .steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .step {
+        width: 100%;
+    }
+    
+    .program-stats {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    /* Why choose us */
+    .stats-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .stat-item {
+        width: 100%;
+        padding: 20px 15px;
+    }
+    
+    /* News grid */
+    .news-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    /* Partners */
+    .partner-logos {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .partner-logos img {
+        width: 40%;
+        max-width: 120px;
+    }
+} 

@@ -2,63 +2,530 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Liên Hệ - GreenGains</title>
-    <link rel="stylesheet" href="static\styles.css">
-    <link rel="stylesheet" href="static\contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- CSS chung -->
+    <link rel="stylesheet" href="/static/header.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/mobile.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Styles riêng cho trang Contact */
+        :root {
+            --primary-color: #1df224;
+            --primary-dark: #2fcc70;
+            --primary-gradient: linear-gradient(135deg, #1df224, #2fcc70);
+            --secondary-color: #e8f5e9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+            --shadow-md: 0 3px 10px rgba(0,0,0,0.1);
+            --shadow-lg: 0 5px 15px rgba(0,0,0,0.15);
+            --rounded-sm: 5px;
+            --rounded-md: 10px;
+            --rounded-lg: 15px;
+            --spacing-xs: 5px;
+            --spacing-sm: 10px;
+            --spacing-md: 15px;
+            --spacing-lg: 20px;
+            --spacing-xl: 30px;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        /* Contact Hero */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/image/contact-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px 60px;
+            margin-top: 60px;
+        }
+        
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .contact-hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Contact Container */
+        .contact-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            flex: 3;
+            background-color: var(--white);
+            border-radius: var(--rounded-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 25px 30px;
+        }
+        
+        .form-header h2 {
+            margin: 0 0 10px;
+            font-size: 1.8rem;
+        }
+        
+        .form-header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .form-content {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--rounded-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-dark);
+            box-shadow: 0 0 0 3px rgba(47, 204, 112, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            flex: 2;
+            background-color: var(--white);
+            border-radius: var(--rounded-md);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-info h2 {
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .info-text h3 {
+            margin: 0;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        
+        .info-text p {
+            margin: 0;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-gradient);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Map */
+        .map-section {
+            margin: 60px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        
+        .map-container {
+            height: 450px;
+            border-radius: var(--rounded-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .accordion {
+            margin-top: 30px;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: var(--rounded-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background-color: var(--white);
+        }
+        
+        .accordion-header {
+            padding: 18px 20px;
+            background-color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .accordion-header:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .accordion-header.active {
+            background: var(--primary-gradient);
+            color: var(--white);
+        }
+        
+        .accordion-header i {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 992px) {
+            .contact-container {
+                margin: 40px auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                margin: 30px auto;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-info {
+                order: -1; /* Move contact info above form on mobile */
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+                margin-bottom: 30px;
+            }
+            
+            .map-section, .faq-section {
+                margin: 40px auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .form-header, .form-content {
+                padding: 20px;
+            }
+            
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                padding: 20px;
+            }
+            
+            .info-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .accordion-header {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+            
+            .accordion-content.active {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Copy header từ index.html -->
-    
-    <main class="contact-page">
-        <div class="contact-hero">
-            <h1>Liên Hệ Với Chúng Tôi</h1>
-            <p>Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm nhất</p>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="/image/logo.png" alt="logo">
+            <h1>Greengains</h1>
         </div>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <span class="hamburger"></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="/index.html" id="homeLink">Trang Chủ</a></li>
+                <li><a href="/about.html" id="aboutLink">Giới Thiệu</a></li>
+                <li><a href="/stored.html" id="storeLink">Cửa hàng</a></li>
+                <li><a href="/contact.html" id="contactLink">Liên hệ</a></li>
+                <li class="auth-links">
+                    <div class="auth-buttons">
+                        <a href="/register.html" id="registerLink" class="auth-btn">Đăng kí</a>
+                        <a href="/login.html" id="loginLink" class="auth-btn">Đăng nhập</a>
                     </div>
-                    <h3>Địa chỉ</h3>
-                    <p>Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa</p>
-                </div>
-
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
+                </li>
+                <li id="notification" style="display: none;">
+                    <a href="#" class="notification">🔔</a>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <a href="#" onclick="toggleDropdown()" class="user-profile-link">
+                        <img src="/image/avatar.jpg" alt="Avatar" class="avatar">
+                        <span id="userName"></span>
+                    </a>
+                    <div id="dropdown" class="dropdown-content">
+                        <a href="#" onclick="logout()">Đăng xuất</a>
                     </div>
-                    <h3>Điện thoại</h3>
-                    <p>Hotline: 028.3535.7439</p>
-                    <p>Di động: 0914.265.254</p>
-                </div>
+                </li>
+            </ul>
+        </nav>  
+    </header>
 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <p>contact@greengains.vn</p>
-                    <p>support@greengains.vn</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <h1>Liên Hệ Với Chúng Tôi</h1>
+        <p>Hãy kết nối với GreenGains để cùng nhau xây dựng một tương lai xanh bền vững</p>
+    </section>
 
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Giờ làm việc</h3>
-                    <p>Thứ 2 - Thứ 6: 8:00 - 17:00</p>
-                    <p>Thứ 7: 8:00 - 12:00</p>
-                </div>
+    <!-- Contact Container -->
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <div class="form-header">
+                <h2>Gửi tin nhắn cho chúng tôi</h2>
+                <p>Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc</p>
             </div>
-
-            <div class="contact-form-wrapper">
-                <div class="contact-form">
-                    <h3>Gửi Tin Nhắn</h3>
-                    <form id="contact-form">
+            <div class="form-content">
+                <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Họ và tên</label>
@@ -72,45 +539,196 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Số điện thoại</label>
-                                <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone">
                             </div>
                             <div class="form-group">
                                 <label for="subject">Chủ đề</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="">Chọn chủ đề</option>
-                                    <option value="consulting">Tư vấn dịch vụ</option>
+                            <select id="subject" name="subject">
+                                <option value="general">Thông tin chung</option>
                                     <option value="recycling">Chương trình đổi rác</option>
                                     <option value="partnership">Hợp tác kinh doanh</option>
+                                <option value="support">Hỗ trợ kỹ thuật</option>
                                     <option value="other">Khác</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">Nội dung tin nhắn</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Tin nhắn</label>
+                        <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Gửi tin nhắn
-                        </button>
+                    <button type="submit" class="submit-btn">Gửi tin nhắn</button>
                     </form>
+            </div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Thông tin liên hệ</h2>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Địa chỉ</h3>
+                    <p>Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa, Đồng Nai</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Điện thoại</h3>
+                    <p>028.3535.7439</p>
+                    <p>Giờ làm việc: 8:00 - 17:00, Thứ 2 - Thứ 6</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-text">
+                    <h3>Email</h3>
+                    <p>contact@greengains.vn</p>
+                    <p>support@greengains.vn</p>
+                </div>
+            </div>
+            <h3>Theo dõi chúng tôi</h3>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2 class="section-title">Vị trí của chúng tôi</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.207929162509!2d106.85254911461602!3d10.947417292199176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174e850ede5bdbd%3A0xddc8b548f0ff45cc!2zMTAgSHV54buJbmggVsSDbiBOZ2jhu4csIFBoxrDhu51uZyBC4butdSBMb25nLCBUaMOgbmggcGjhu5EgQmnDqm4gSMOyYSwgxJDhu5NuZyBOYWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1626275486861!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Làm thế nào để tham gia chương trình đổi rác lấy cây?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Để tham gia chương trình đổi rác lấy cây, bạn cần thực hiện các bước sau:</p>
+                    <ol>
+                        <li>Đăng ký tài khoản trên website hoặc ứng dụng GreenGains</li>
+                        <li>Thu gom và phân loại rác thải có thể tái chế (nhựa, giấy, kim loại, thủy tinh, v.v.)</li>
+                        <li>Mang rác tái chế đến các điểm thu gom của GreenGains</li>
+                        <li>Nhận điểm thưởng tương ứng với lượng rác tái chế</li>
+                        <li>Đổi điểm thưởng lấy cây xanh hoặc các phần thưởng khác</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>GreenGains có thu gom tất cả các loại rác không?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>GreenGains chỉ thu gom các loại rác có thể tái chế, bao gồm:</p>
+                    <ul>
+                        <li>Nhựa (chai nhựa, hộp nhựa, túi nilon sạch)</li>
+                        <li>Giấy và bìa carton</li>
+                        <li>Kim loại (lon nhôm, sắt vụn, đồng, nhôm)</li>
+                        <li>Thủy tinh (chai lọ thủy tinh)</li>
+                        <li>Vải và dệt may cũ</li>
+                    </ul>
+                    <p>Chúng tôi không thu gom rác thải hữu cơ, rác thải nguy hại, và rác thải y tế.</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Làm thế nào doanh nghiệp có thể hợp tác với GreenGains?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Doanh nghiệp có thể hợp tác với GreenGains thông qua các hình thức sau:</p>
+                    <ul>
+                        <li>Trở thành đối tác thu gom và tái chế rác thải</li>
+                        <li>Tham gia chương trình CSR (Trách nhiệm xã hội doanh nghiệp) về bảo vệ môi trường</li>
+                        <li>Triển khai các giải pháp xanh trong văn phòng và cơ sở sản xuất</li>
+                        <li>Tài trợ cho các chương trình trồng cây và bảo vệ môi trường</li>
+                        <li>Quảng bá sản phẩm thân thiện với môi trường trên nền tảng của GreenGains</li>
+                    </ul>
+                    <p>Để biết thêm chi tiết, vui lòng liên hệ với chúng tôi qua email: partnership@greengains.vn</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Tôi có thể kiếm điểm thưởng bằng cách nào?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Bạn có thể kiếm điểm thưởng GreenGains qua các hoạt động sau:</p>
+                    <ul>
+                        <li>Mang rác tái chế đến các điểm thu gom</li>
+                        <li>Tham gia các sự kiện và chiến dịch bảo vệ môi trường</li>
+                        <li>Giới thiệu bạn bè tham gia GreenGains</li>
+                        <li>Chia sẻ bài viết và hoạt động của GreenGains trên mạng xã hội</li>
+                        <li>Hoàn thành các thử thách môi trường hàng tháng</li>
+                    </ul>
+                    <p>Điểm thưởng có thể đổi lấy cây xanh, sản phẩm thân thiện với môi trường, hoặc quy đổi thành tiền mặt.</p>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>Làm thế nào để trở thành tình nguyện viên của GreenGains?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Để trở thành tình nguyện viên của GreenGains, bạn có thể:</p>
+                    <ol>
+                        <li>Đăng ký tài khoản trên website của chúng tôi</li>
+                        <li>Điền vào mẫu đơn tình nguyện viên trong mục "Tham gia cùng chúng tôi"</li>
+                        <li>Tham dự buổi định hướng tình nguyện viên (trực tiếp hoặc trực tuyến)</li>
+                        <li>Chọn các hoạt động phù hợp với thời gian và kỹ năng của bạn</li>
+                    </ol>
+                    <p>Chúng tôi luôn chào đón những người đam mê bảo vệ môi trường tham gia đội ngũ tình nguyện viên của GreenGains!</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="map-section">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.410462252074!2d106.82345631533184!3d10.952890359156682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174e6dcf4458d5f%3A0x8e4384627f5e460c!2zSHXhu7NuaCBWxINuIE5naOG7hywgUGjGsOG7nW5nIELhu611IExvbmcsIFRow6BuaCBwaOG7kSBCacOqbiBIw7JhLCDEkOG7k25nIE5haSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1647856428008!5m2!1svi!2s" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy">
-            </iframe>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <img src="/image/logo.png" alt="GreenGains Logo" class="footer-logo">
+                <p>GreenGains - Đồng hành cùng doanh nghiệp phát triển bền vững, mang lại giá trị cho cộng đồng và môi trường.</p>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Số 10, Huỳnh Văn Nghệ, P. Bửu Long, Tp. Biên Hòa</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>028.3535.7439</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@greengains.vn</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </main>
-
-    <!-- Copy footer từ index.html -->
+    </footer>
     
     <script src="/static/scripts.js"></script>
 </body>
